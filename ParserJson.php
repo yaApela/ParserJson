@@ -5,11 +5,6 @@ $output = convertToJson($data);
 
 file_put_contents('output.json', $output);
 
-
-
-
-
-
 /**
  *@param string $fileName
  *@return array
@@ -35,7 +30,6 @@ function parseFile(string $fileName): array {
 	return $data;
 }
 
-
 /**
  *@param array $array
  *@return array
@@ -44,25 +38,14 @@ function getUniqueKey(array $array): array {
 	$uniqueKey = array();
 	
 	foreach ($array as $key_one => $value_one) {
-
 		$count = 0;
 		foreach ($array as $key_two => $value_two) {
-			if($value_one === $value_two){
-				$count += 1;
-			}
-			else
-			{
-
-			}
+			if($value_one === $value_two){$count += 1;}
 		}
-		if($count === 1){
-			$uniqueKey[] = $value_one;
-		}
+		if($count === 1){$uniqueKey[] = $value_one;}
 	}
-
 	return $uniqueKey;
 }
-
 
 /**
  *@param array $array
@@ -70,24 +53,15 @@ function getUniqueKey(array $array): array {
  */
 function getCountedElements(array $array): array {
 	$Items = array();
-
 	foreach (array_unique($array) as $key_one => $value_one) {
 		$count = 0;
-
 		foreach ($array as $key_two => $value_two) {	
-			if($value_one === $value_two){
-				$count+=1;
-			}
+			if($value_one === $value_two){$count+=1;}
 		}
 		$Items[$value_one] = $count;
 	}
-
 	return $Items;
 }
-
-
-
-
 
 /**
  *@param array $data
@@ -132,14 +106,12 @@ function getFileLength(string $fileName): int {
 	return $lineCount;
 }
 
-
 /**
  *@param array $array
  *@param string $pattern
  *@param int $matchIndex
  *@return array
  */
-
 function parseArray(array $array, string $pattern, int $matchIndex): array {
 	$data = array();
 
